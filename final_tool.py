@@ -43,4 +43,7 @@ print("------------------------------------------")
 
 print(f"Báo cáo đã được lưu vào file: {filename}")
 print("------------------------------------------")
+print("Cảm ơn bạn đã sử dụng công cụ quét máy chủ!")
+print("Chúc bạn một ngày tốt lành!")
+
 # Kết thúc file final_tool.py
