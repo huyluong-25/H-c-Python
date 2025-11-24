@@ -1,9 +1,9 @@
-BÁO CÁO HỆ THỐNG - Lúc: 2025-11-24 11:15:55.947284
+BÁO CÁO HỆ THỐNG - Lúc: 2025-11-24 11:37:25.822191
 ------------------------------------------
 ✅ Server: google.com -> Trạng thái: ONLINE
 ✅ Server: 10.251.0.30 -> Trạng thái: ONLINE
 ❌ Server: 192.168.1.2 -> Trạng thái: OFFLINE
-✅ Server: 192.168.1.3 -> Trạng thái: ONLINE
+❌ Server: 192.168.1.3 -> Trạng thái: OFFLINE
 ✅ Server: 10.251.0.1 -> Trạng thái: ONLINE
 ✅ Server: 10.251.0.10 -> Trạng thái: ONLINE
 ✅ Server: 10.251.0.55 -> Trạng thái: ONLINE

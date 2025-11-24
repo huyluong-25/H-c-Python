@@ -43,3 +43,6 @@ print("------------------------------------------")
 
 print(f"Báo cáo đã được lưu vào file: {filename}")
 print("Hoàn tất quét tất cả server.")
+print("------------------------------------------")
+print("Lưu ý: Nếu một server hiển thị OFFLINE, vui lòng kiểm tra lại kết nối mạng hoặc trạng thái server đó.")  
+# Kết thúc file final_tool.py
