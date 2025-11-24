@@ -2,7 +2,7 @@ import subprocess
 import datetime
 import platform
 
-servers = ["google.com", "10.251.0.30", "192.168.1.2", "192.168.1.3","10.251.0.1","10.251.0.10","10.251.0.55","10.10.10.6"] # Đã thêm IP lỗi để test
+servers = ["google.com", "10.251.0.30", "192.168.1.2", "192.168.1.3","10.251.0.1","10.251.0.10","10.251.0.55","10.10.10.6","192.168.1.1"] # Đã thêm IP lỗi để test
 filename = "baocao.txt"
 
 param = "-n" if platform.system().lower() == "windows" else "-c"
