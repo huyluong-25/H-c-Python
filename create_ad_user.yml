@@ -1,0 +1,19 @@
+- name: Quan ly User Active Directory
+  hosts: winservers
+  gather_facts: no
+  
+  vars:
+    user_pass: "MatKhauManh@123" # Nên dùng Vault để bảo mật, đây là demo
+
+  tasks:
+    - name: Tao User AD moi
+      community.windows.win_domain_user:
+        name: NhanVienMoi
+        password: "{{ user_pass }}"
+        firstname: Nguyen
+        surname: Van A
+        email: nguyenvana@congty.com
+        groups:
+          - Domain Users
+        state: present
+        enabled: yes
