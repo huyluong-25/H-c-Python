@@ -3,26 +3,23 @@
   gather_facts: no
   
   vars:
-    user_pass: "Tini@2024@"
+    user_pass: "MatKhauManh@123"
     target_path: "OU=08 PHONG CNTT,OU=TINIGROUP,DC=huylv,DC=xyz"
 
   tasks:
-    # 1. TẠO USER (Bỏ phần groups đi)
+    # 1. TẠO USER
     - name: Tao User NhanVienMoi
       microsoft.ad.user:
-        name: NhanVienMoi111
+        name: NhanVienMoihihi
         password: "{{ user_pass }}"
         firstname: Nguyen
-        surname: Van C
-        email: nguyenvanc@huylv.xyz
+        surname: Van D
+        email: nguyenvanahihi@huylv.xyz
         path: "{{ target_path }}"
         enabled: yes
         state: present
 
-    # 2. THÊM VÀO GROUP (Dùng task riêng này sẽ không bị lỗi)
-    - name: Them NhanVienMoi vao Domain Users
-      microsoft.ad.group:
-        name: "Domain Users"
-        add_members:
-          - NhanVienMoi
-        state: present
+    # 2. ADD GROUP (Dùng PowerShell cho chắc ăn)
+    - name: Add User vao Group Admin
+      win_shell: |
+        Add-ADGroupMember -Identity "Administrators" -Members "NhanVienMoihihi" -ErrorAction SilentlyContinue
