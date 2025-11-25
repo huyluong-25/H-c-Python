@@ -3,20 +3,26 @@
   gather_facts: no
   
   vars:
-    user_pass: "Tini@2024@"
-    # ĐÂY LÀ DÒNG QUAN TRỌNG NHẤT:
+    user_pass: "MatKhauManh@123"
     target_path: "OU=08 PHONG CNTT,OU=TINIGROUP,DC=huylv,DC=xyz"
 
   tasks:
+    # 1. TẠO USER (Bỏ phần groups đi)
     - name: Tao User NhanVienMoi
       microsoft.ad.user:
-        name: NhanVienMoihihi
+        name: NhanVienMoi
         password: "{{ user_pass }}"
         firstname: Nguyen
         surname: Van A
         email: nguyenvana@huylv.xyz
-        path: "{{ target_path }}"  # Ansible sẽ nhét vào đúng chỗ này
+        path: "{{ target_path }}"
         enabled: yes
         state: present
-        groups:
-          - Domain Users
+
+    # 2. THÊM VÀO GROUP (Dùng task riêng này sẽ không bị lỗi)
+    - name: Them NhanVienMoi vao Domain Users
+      microsoft.ad.group:
+        name: "Domain Users"
+        add_members:
+          - NhanVienMoi
+        state: present
