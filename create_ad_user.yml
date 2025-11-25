@@ -3,18 +3,18 @@
   gather_facts: no
   
   vars:
-    user_pass: "MatKhauManh@123"
+    user_pass: "Tini@2024@"
     target_path: "OU=08 PHONG CNTT,OU=TINIGROUP,DC=huylv,DC=xyz"
 
   tasks:
     # 1. TẠO USER (Bỏ phần groups đi)
     - name: Tao User NhanVienMoi
       microsoft.ad.user:
-        name: NhanVienMoi
+        name: NhanVienMoi111
         password: "{{ user_pass }}"
         firstname: Nguyen
-        surname: Van A
-        email: nguyenvana@huylv.xyz
+        surname: Van C
+        email: nguyenvanc@huylv.xyz
         path: "{{ target_path }}"
         enabled: yes
         state: present
