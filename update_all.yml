@@ -16,3 +16,8 @@
         update_cache: yes
         upgrade: dist
       when: ansible_os_family == "Debian"
+    - name: Tao thu muc Test trong Root
+      file:
+        path: /root/Ansible_Da_O_Day  # Tên thư mục bạn muốn tạo
+        state: directory
+        mode: '0755'
