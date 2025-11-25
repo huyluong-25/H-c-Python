@@ -23,7 +23,7 @@
         path: /root/Ansible_Da_O_Day  # Tên thư mục bạn muốn tạo
         state: directory
         mode: '0755'
-        become: yes
+      become: yes
 
     - name: Tao thu muc Test tren Windows
       win_file:
