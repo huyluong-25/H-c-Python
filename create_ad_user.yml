@@ -1,17 +1,22 @@
-- name: Quan ly User Windows
+- name: Tao User AD vao Phong CNTT
   hosts: winservers
   gather_facts: no
   
   vars:
-    user_pass: "MatKhauManh@123"
+    user_pass: "Tini@2024@"
+    # ĐÂY LÀ DÒNG QUAN TRỌNG NHẤT:
+    target_path: "OU=08 PHONG CNTT,OU=TINIGROUP,DC=huylv,DC=xyz"
 
   tasks:
-    - name: Tao User Windows Moi
-      ansible.windows.win_user:
-        name: NhanVienMoi1
+    - name: Tao User NhanVienMoi
+      microsoft.ad.user:
+        name: NhanVienMoihihi
         password: "{{ user_pass }}"
-        fullname: Nguyen Van B
-        groups:
-          - Administrators  # Chỉ cần liệt kê nhóm muốn thêm
-        groups_action: add  # <--- DÒNG QUAN TRỌNG NHẤT: Chỉ thêm, không xóa nhóm cũ
+        firstname: Nguyen
+        surname: Van A
+        email: nguyenvana@huylv.xyz
+        path: "{{ target_path }}"  # Ansible sẽ nhét vào đúng chỗ này
+        enabled: yes
         state: present
+        groups:
+          - Domain Users
