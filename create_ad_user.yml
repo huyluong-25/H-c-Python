@@ -1,19 +1,17 @@
-- name: Quan ly User Active Directory
+- name: Quan ly User Windows
   hosts: winservers
   gather_facts: no
   
   vars:
-    user_pass: "MatKhauManh@123" # Nên dùng Vault để bảo mật, đây là demo
+    user_pass: "MatKhauManh@123"
 
   tasks:
-    - name: Tao User AD moi
-      community.windows.win_domain_user:
+    - name: Tao User Windows Moi
+      ansible.windows.win_user:  # <--- DÙNG CÁI NÀY CHUẨN HƠN
         name: NhanVienMoi
         password: "{{ user_pass }}"
-        firstname: Nguyen
-        surname: Van A
-        email: nguyenvana@congty.com
+        fullname: Nguyen Van A
         groups:
-          - Domain Users
+          - Users
+          - Administrators # Add vào nhóm Admin luôn cho máu
         state: present
-        enabled: yes
