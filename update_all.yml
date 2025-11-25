@@ -1,6 +1,5 @@
 - name: Tu dong Update he thong
-  hosts: all
-  become: yes  # Chạy với quyền Root
+  hosts: all # Chạy với quyền Root
   
   tasks:
     # 1. Nếu là CentOS -> Chạy YUM
@@ -16,11 +15,15 @@
         update_cache: yes
         upgrade: dist
       when: ansible_os_family == "Debian"
+      become: yes
+
     - name: Tao thu muc Test trong Root
       file:
         path: /root/Ansible_Da_O_Day  # Tên thư mục bạn muốn tạo
         state: directory
         mode: '0755'
+        become: yes
+        
     - name: Tao thu muc Test tren Windows
       win_file:
         path: C:\Ansible_Da_O_Day
