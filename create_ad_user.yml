@@ -7,11 +7,11 @@
 
   tasks:
     - name: Tao User Windows Moi
-      ansible.windows.win_user:  # <--- DÙNG CÁI NÀY CHUẨN HƠN
-        name: NhanVienMoi
+      ansible.windows.win_user:
+        name: NhanVienMoi1
         password: "{{ user_pass }}"
-        fullname: Nguyen Van A
+        fullname: Nguyen Van B
         groups:
-          - Users
-          - Administrators # Add vào nhóm Admin luôn cho máu
+          - Administrators  # Chỉ cần liệt kê nhóm muốn thêm
+        groups_action: add  # <--- DÒNG QUAN TRỌNG NHẤT: Chỉ thêm, không xóa nhóm cũ
         state: present
