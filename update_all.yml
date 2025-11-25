@@ -4,26 +4,27 @@
   tasks:
     # 1. Nếu là CentOS -> Chạy YUM
     - name: Update toan bo cho CentOS
+      become: yes
       yum:
         name: '*'
         state: latest
       when: ansible_os_family == "RedHat"
-      become: yes
 
     # 2. Nếu là Ubuntu -> Chạy APT
     - name: Update toan bo cho Ubuntu
+      become: yes
       apt:
         update_cache: yes
         upgrade: dist
       when: ansible_os_family == "Debian"
-      become: yes
+      
 
     - name: Tao thu muc Test trong Root
+      become: yes
       file:
         path: /root/Ansible_Da_O_Day  # Tên thư mục bạn muốn tạo
         state: directory
         mode: '0755'
-      become: yes
 
     - name: Tao thu muc Test tren Windows
       win_file:
