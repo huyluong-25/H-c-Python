@@ -41,7 +41,7 @@
         surname: "{{ (item.split(',')[1] | trim).split(' ')[1:] | join(' ') }}"
         
         email: "{{ item.split(',')[3] | trim }}"
-        password: "{{ ansible_password }}" # Lấy mật khẩu từ vars.yml truyền vào
+        password: "Tini@2024@" # Lấy mật khẩu từ vars.yml truyền vào
         path: "{{ ou_map[chon_phong] }}"
         
         enabled: yes
