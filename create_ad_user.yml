@@ -32,10 +32,10 @@
     
     nhanvien:
       ho: "Luong Van"
-      ten: "BBB"
-      username: "kt.ba"  # Sẽ ra: "it.hd"
-      upn_full: "kt.ba@huylv.xyz"
-      email: "kt.ba@tinigroup.vn"
+      ten: "BBBcc"
+      username: "kt.ba1"  # Sẽ ra: "it.hd"
+      upn_full: "kt.ba1@huylv.xyz"
+      email: "kt.ba1@tinigroup.vn"
       chucdanh: "Ke Toan"
       phongban: "P. KE TOAN"
       congty: "TINIGROUP"
@@ -62,7 +62,7 @@
         password_never_expires: yes
         enabled: yes
 
-        path: "{{ ou_map[chon_phong] }}"
+        path: "{{ ou_map['KE_TOAN'] }}"
         state: present
         
         attributes:
