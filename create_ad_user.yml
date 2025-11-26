@@ -7,37 +7,36 @@
     
     ou_map:
       # Khối 1
-      CNTT: "OU=08 PHONG CNTT,OU=TINIGROUP,DC=huylv,DC=xyz"
-      NHAN_SU: "OU=07 PHONG NHAN SU,OU=TINIGROUP,DC=huylv,DC=xyz"
-      PHAP_CHE: "OU=06 PHONG PHAP CHE,OU=TINIGROUP,DC=huylv,DC=xyz"
-      GOLF_RIVERPARK: "OU=GOLF RIVERPARK,OU=TINIGROUP,DC=huylv,DC=xyz"
+      CNTT: "OU=08 PHONG CNTT,OU=TINIGROUP,DC=tinigroup,DC=local"
+      NHAN_SU: "OU=07 PHONG NHAN SU,OU=TINIGROUP,DC=tinigroup,DC=local"
+      PHAP_CHE: "OU=06 PHONG PHAP CHE,OU=TINIGROUP,DC=tinigroup,DC=local"
+      GOLF_RIVERPARK: "OU=GOLF RIVERPARK,OU=TINIGROUP,DC=tinigroup,DC=local"
 
       # Khối Kinh Doanh
-      KINH_DOANH: "OU=PHONG KINH DOANH,OU=05 KHOI KINH DOANH,OU=TINIGROUP,DC=huylv,DC=xyz"
-      MARKETING: "OU=PHONG MARKETING,OU=05 KHOI KINH DOANH,OU=TINIGROUP,DC=huylv,DC=xyz"
-      THIET_KE: "OU=PHONG THIET KE,OU=05 KHOI KINH DOANH,OU=TINIGROUP,DC=huylv,DC=xyz"
+      KINH_DOANH: "OU=PHONG KINH DOANH,OU=05 KHOI KINH DOANH,OU=TINIGROUP,DC=tinigroup,DC=local"
+      MARKETING: "OU=PHONG MARKETING,OU=05 KHOI KINH DOANH,OU=TINIGROUP,DC=tinigroup,DC=local"
+      THIET_KE: "OU=PHONG THIET KE,OU=05 KHOI KINH DOANH,OU=TINIGROUP,DC=tinigroup,DC=local"
 
       # Khối Tài Chính
-      KE_TOAN: "OU=KE TOAN,OU=04 KHOI TAI CHINH KE TOAN - DAU TU,OU=TINIGROUP,DC=huylv,DC=xyz"
-      TAI_CHINH: "OU=TAI CHINH - DAU TU,OU=04 KHOI TAI CHINH KE TOAN - DAU TU,OU=TINIGROUP,DC=huylv,DC=xyz"
-
+      KE_TOAN: "OU=KE TOAN,OU=04 KHOI TAI CHINH KE TOAN - DAU TU,OU=TINIGROUP,DC=tinigroup,DC=local"
+      TAI_CHINH: "OU=TAI CHINH - DAU TU,OU=04 KHOI TAI CHINH KE TOAN - DAU TU,OU=TINIGROUP,DC=tinigroup,DC=local"
       # Khối Vận Hành
-      HCQT: "OU=02 PHONG HCQT,OU=03 KHOI VAN HANH,OU=TINIGROUP,DC=huylv,DC=xyz"
-      QL_VAN_HANH: "OU=03 PHONG QLVH,OU=03 KHOI VAN HANH,OU=TINIGROUP,DC=huylv,DC=xyz"
+      HCQT: "OU=02 PHONG HCQT,OU=03 KHOI VAN HANH,OU=TINIGROUP,DC=tinigroup,DC=local"
+      QL_VAN_HANH: "OU=03 PHONG QLVH,OU=03 KHOI VAN HANH,OU=TINIGROUP,DC=tinigroup,DC=local"
 
       # Khối Dự Án
-      PHAP_LY_DU_AN: "OU=01 PHAP LY DU AN,OU=02 KHOI PHAT TRIEN DU AN,OU=TINIGROUP,DC=huylv,DC=xyz"
-      QL_DU_AN: "OU=02 QUAN LY DU AN,OU=02 KHOI PHAT TRIEN DU AN,OU=TINIGROUP,DC=huylv,DC=xyz"
-      R_AND_D: "OU=03 NGHIEN CUU & PHAT TRIEN,OU=02 KHOI PHAT TRIEN DU AN,OU=TINIGROUP,DC=huylv,DC=xyz"
+      PHAP_LY_DU_AN: "OU=01 PHAP LY DU AN,OU=02 KHOI PHAT TRIEN DU AN,OU=TINIGROUP,DC=tinigroup,DC=local"
+      QL_DU_AN: "OU=02 QUAN LY DU AN,OU=02 KHOI PHAT TRIEN DU AN,OU=TINIGROUP,DC=tinigroup,DC=local"
+      R_AND_D: "OU=03 NGHIEN CUU & PHAT TRIEN,OU=02 KHOI PHAT TRIEN DU AN,OU=TINIGROUP,DC=tinigroup,DC=local"
     
-    nhanvien:
-      ho: "Luong Van"
-      ten: "BBBccccc"
-      username: "kt.ba2"  # Sẽ ra: "it.hd"
-      upn_full: "kt.ba2@huylv.xyz"
-      email: "kt.ba2@tinigroup.vn"
-      chucdanh: "KeToan"
-      phongban: "P. KE TOAN"
+    nhanvien: # Thong tin nhan vien can tao
+      ho: "Test"
+      ten: "1234"
+      username: "test1234"  # Sẽ ra: "it.hd"
+      upn_full: "test1234@tinigroup.vn"
+      email: "test1234@tinigroup.vn"
+      chucdanh: "CNTT"
+      phongban: "P. CNTT"
       congty: "TINIGROUP"
 
   tasks:
@@ -62,7 +61,7 @@
         password_never_expires: yes
         enabled: yes
 
-        path: "{{ ou_map['TAI_CHINH'] }}"
+        path: "{{ ou_map['CNTT'] }}" # Chọn OU để tạo user vào đây
         state: present
         
         attributes:
