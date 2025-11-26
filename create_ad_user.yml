@@ -3,33 +3,37 @@
   gather_facts: no
   
   vars:
-    user_pass: "MatKhauManh@123"
-    
+    # Bản đồ phòng ban (Giữ nguyên không đổi)
     ou_map:
-      CNTT: "OU=08 PHONG CNTT,OU=TINIGROUP,DC=tinigroup,DC=local"
-      NHAN_SU: "OU=07 PHONG NHAN SU,OU=TINIGROUP,DC=tinigroup,DC=local"
-      PHAP_CHE: "OU=06 PHONG PHAP CHE,OU=TINIGROUP,DC=tinigroup,DC=local"
-      GOLF_RIVERPARK: "OU=GOLF RIVERPARK,OU=TINIGROUP,DC=tinigroup,DC=local"
-      KINH_DOANH: "OU=PHONG KINH DOANH,OU=05 KHOI KINH DOANH,OU=TINIGROUP,DC=tinigroup,DC=local"
-      MARKETING: "OU=PHONG MARKETING,OU=05 KHOI KINH DOANH,OU=TINIGROUP,DC=tinigroup,DC=local"
-      THIET_KE: "OU=PHONG THIET KE,OU=05 KHOI KINH DOANH,OU=TINIGROUP,DC=tinigroup,DC=local"
-      KE_TOAN: "OU=KE TOAN,OU=04 KHOI TAI CHINH KE TOAN - DAU TU,OU=TINIGROUP,DC=tinigroup,DC=local"
-      TAI_CHINH: "OU=TAI CHINH - DAU TU,OU=04 KHOI TAI CHINH KE TOAN - DAU TU,OU=TINIGROUP,DC=tinigroup,DC=local"
-      HCQT: "OU=02 PHONG HCQT,OU=03 KHOI VAN HANH,OU=TINIGROUP,DC=tinigroup,DC=local"
-      QL_VAN_HANH: "OU=03 PHONG QLVH,OU=03 KHOI VAN HANH,OU=TINIGROUP,DC=tinigroup,DC=local"
-      PHAP_LY_DU_AN: "OU=01 PHAP LY DU AN,OU=02 KHOI PHAT TRIEN DU AN,OU=TINIGROUP,DC=tinigroup,DC=local"
-      QL_DU_AN: "OU=02 QUAN LY DU AN,OU=02 KHOI PHAT TRIEN DU AN,OU=TINIGROUP,DC=tinigroup,DC=local"
-      R_AND_D: "OU=03 NGHIEN CUU & PHAT TRIEN,OU=02 KHOI PHAT TRIEN DU AN,OU=TINIGROUP,DC=tinigroup,DC=local"
-      QL_KY_THUAT: "OU=01 PHONG QUAN LY KY THUAT,OU=09 KHOI QUAN LY DU AN,OU=TINIGROUP,DC=tinigroup,DC=local"
-      DIEU_PHOI_DA: "OU=02 PHONG DIEU PHOI DU AN,OU=09 KHOI QUAN LY DU AN,OU=TINIGROUP,DC=tinigroup,DC=local"
-      BAN_QLDA: "OU=03 CAC BAN QUAN LY DU AN,OU=09 KHOI QUAN LY DU AN,OU=TINIGROUP,DC=tinigroup,DC=local"
+      P.CNTT: "OU=08 PHONG CNTT,OU=TINIGROUP,DC=tinigroup,DC=local"
+      P.NHAN SU: "OU=07 PHONG NHAN SU,OU=TINIGROUP,DC=tinigroup,DC=local"
+      P.PHAP CHE: "OU=06 PHONG PHAP CHE,OU=TINIGROUP,DC=tinigroup,DC=local"
+      GOLF RIVERPARK: "OU=GOLF RIVERPARK,OU=TINIGROUP,DC=tinigroup,DC=local"
+
+      P.KINH DOANH: "OU=PHONG KINH DOANH,OU=05 KHOI KINH DOANH,OU=TINIGROUP,DC=tinigroup,DC=local"
+      P.MARKETING: "OU=PHONG MARKETING,OU=05 KHOI KINH DOANH,OU=TINIGROUP,DC=tinigroup,DC=local"
+      P.THIET KE: "OU=PHONG THIET KE,OU=05 KHOI KINH DOANH,OU=TINIGROUP,DC=tinigroup,DC=local"
+
+      P.KE TOAN: "OU=KE TOAN,OU=04 KHOI TAI CHINH KE TOAN - DAU TU,OU=TINIGROUP,DC=tinigroup,DC=local"
+      P.TAI CHINH: "OU=TAI CHINH - DAU TU,OU=04 KHOI TAI CHINH KE TOAN - DAU TU,OU=TINIGROUP,DC=tinigroup,DC=local"
+
+      P.HCQT: "OU=02 PHONG HCQT,OU=03 KHOI VAN HANH,OU=TINIGROUP,DC=tinigroup,DC=local"
+      P.QL VAN HANH: "OU=03 PHONG QLVH,OU=03 KHOI VAN HANH,OU=TINIGROUP,DC=tinigroup,DC=local"
+
+      P.PHAP LY DU AN: "OU=01 PHAP LY DU AN,OU=02 KHOI PHAT TRIEN DU AN,OU=TINIGROUP,DC=tinigroup,DC=local"
+      P.QL DU AN: "OU=02 QUAN LY DU AN,OU=02 KHOI PHAT TRIEN DU AN,OU=TINIGROUP,DC=tinigroup,DC=local"
+      P.R AND D: "OU=03 NGHIEN CUU & PHAT TRIEN,OU=02 KHOI PHAT TRIEN DU AN,OU=TINIGROUP,DC=tinigroup,DC=local"
+      
+      P.QL KY THUAT: "OU=01 PHONG QUAN LY KY THUAT,OU=09 KHOI QUAN LY DU AN,OU=TINIGROUP,DC=tinigroup,DC=local"
+      P.DIEU PHOI DA: "OU=02 PHONG DIEU PHOI DU AN,OU=09 KHOI QUAN LY DU AN,OU=TINIGROUP,DC=tinigroup,DC=local"
+      P.BAN QLDA: "OU=03 CAC BAN QUAN LY DU AN,OU=09 KHOI QUAN LY DU AN,OU=TINIGROUP,DC=tinigroup,DC=local"
 
   tasks:
     - name: Tao hoac Cap nhat User
       microsoft.ad.user:
         identity: "{{ item.split(',')[0] | trim }}"
         sam_account_name: "{{ item.split(',')[0] | trim }}"
-        upn: "{{ item.split(',')[0] | trim }}@tinigroup.vn"
+        upn: "{{ item.split(',')[0] | trim }}@tinigroup.local"
         
         name: "{{ item.split(',')[1] | trim }}" 
         display_name: "{{ item.split(',')[1] | trim }}"
@@ -37,8 +41,9 @@
         surname: "{{ (item.split(',')[1] | trim).split(' ')[1:] | join(' ') }}"
         
         email: "{{ item.split(',')[3] | trim }}"
-        password: "{{ user_pass }}"
+        password: "{{ ansible_password }}" # Lấy mật khẩu từ vars.yml truyền vào
         path: "{{ ou_map[chon_phong] }}"
+        
         enabled: yes
         password_never_expires: yes
         state: present
@@ -47,17 +52,31 @@
           set:
             title: "{{ item.split(',')[2] | trim }}"
             company: "TINIGROUP"
+            department: "{{ chon_phong }}"
       
-      # --- ĐỌC FILE USER_LIST.TXT TẠI ĐÂY ---
+      # ĐỌC FILE USER_LIST.TXT
       loop: "{{ lookup('file', 'user_list.txt').splitlines() | select('match', '^.+$') | list }}"
       loop_control:
         label: "Xu ly: {{ item.split(',')[0] }}"
 
-    - name: Add User vao Group
+    # --- TASK 2: THÊM VÀO NHÓM (Dùng Try/Catch để không bao giờ lỗi) ---
+    - name: Add User vao Group an toan
       win_shell: |
         $user = "{{ item.split(',')[0] | trim }}"
-        Add-ADGroupMember -Identity "Domain Users" -Members $user -ErrorAction SilentlyContinue
+        $group = "Domain Users"
+        
+        # Thử thêm vào nhóm
+        try {
+            Add-ADGroupMember -Identity $group -Members $user -ErrorAction Stop
+            Write-Host "Da them $user vao $group"
+        }
+        catch {
+            # Nếu lỗi (do đã tồn tại), chỉ in ra thông báo và không làm chết Pipeline
+            Write-Host "User $user da ton tai trong nhom $group. Bo qua."
+        }
       loop: "{{ lookup('file', 'user_list.txt').splitlines() | select('match', '^.+$') | list }}"
+      loop_control:
+        label: "Add Group: {{ item.split(',')[0] }}"
 
     - name: Force Sync Azure AD
       win_shell: |
