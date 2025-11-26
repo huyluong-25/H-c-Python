@@ -35,10 +35,10 @@
 
     nhanvien: # Thong tin nhan vien can tao
       ho: "Test"
-      ten: "123456"
-      username: "test123456"  # Sẽ ra: "it.hd"
-      upn_full: "test123456@tinigroup.vn"
-      email: "test123456@tinigroup.vn"
+      ten: "1234"
+      username: "test1234"  # Sẽ ra: "it.hd"
+      upn_full: "test1234@tinigroup.vn"
+      email: "test1234@tinigroup.vn"
       chucdanh: "CNTT"
       phongban: "P. CNTT"
       congty: "TINIGROUP"
