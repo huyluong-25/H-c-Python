@@ -4,7 +4,31 @@
   
   vars:
     user_pass: "Tini@2024@"
-    target_path: "OU=08 PHONG CNTT,OU=TINIGROUP,DC=huylv,DC=xyz"
+    
+    ou_map:
+      # Khối 1
+      CNTT: "OU=08 PHONG CNTT,OU=TINIGROUP,DC=huylv,DC=xyz"
+      NHAN_SU: "OU=07 PHONG NHAN SU,OU=TINIGROUP,DC=huylv,DC=xyz"
+      PHAP_CHE: "OU=06 PHONG PHAP CHE,OU=TINIGROUP,DC=huylv,DC=xyz"
+      GOLF_RIVERPARK: "OU=GOLF RIVERPARK,OU=TINIGROUP,DC=huylv,DC=xyz"
+
+      # Khối Kinh Doanh
+      KINH_DOANH: "OU=PHONG KINH DOANH,OU=05 KHOI KINH DOANH,OU=TINIGROUP,DC=huylv,DC=xyz"
+      MARKETING: "OU=PHONG MARKETING,OU=05 KHOI KINH DOANH,OU=TINIGROUP,DC=huylv,DC=xyz"
+      THIET_KE: "OU=PHONG THIET KE,OU=05 KHOI KINH DOANH,OU=TINIGROUP,DC=huylv,DC=xyz"
+
+      # Khối Tài Chính
+      KE_TOAN: "OU=KE TOAN,OU=04 KHOI TAI CHINH KE TOAN - DAU TU,OU=TINIGROUP,DC=huylv,DC=xyz"
+      TAI_CHINH: "OU=TAI CHINH - DAU TU,OU=04 KHOI TAI CHINH KE TOAN - DAU TU,OU=TINIGROUP,DC=huylv,DC=xyz"
+
+      # Khối Vận Hành
+      HCQT: "OU=02 PHONG HCQT,OU=03 KHOI VAN HANH,OU=TINIGROUP,DC=huylv,DC=xyz"
+      QL_VAN_HANH: "OU=03 PHONG QLVH,OU=03 KHOI VAN HANH,OU=TINIGROUP,DC=huylv,DC=xyz"
+
+      # Khối Dự Án
+      PHAP_LY_DU_AN: "OU=01 PHAP LY DU AN,OU=02 KHOI PHAT TRIEN DU AN,OU=TINIGROUP,DC=huylv,DC=xyz"
+      QL_DU_AN: "OU=02 QUAN LY DU AN,OU=02 KHOI PHAT TRIEN DU AN,OU=TINIGROUP,DC=huylv,DC=xyz"
+      R_AND_D: "OU=03 NGHIEN CUU & PHAT TRIEN,OU=02 KHOI PHAT TRIEN DU AN,OU=TINIGROUP,DC=huylv,DC=xyz"
     
     nhanvien:
       ho: "Luong Van"
@@ -37,6 +61,9 @@
         path: "{{ target_path }}"
         password_never_expires: yes
         enabled: yes
+
+        path: "{{ ou_map[KE_TOAN] }}"
+        state: present
         
         attributes:
           set:
