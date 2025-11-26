@@ -18,25 +18,25 @@
       congty: "TINIGROUP" # Ví dụ tên công ty
 
   tasks:
-    # 1. TẠO USER VỚI ĐẦY ĐỦ THÔNG TIN
     - name: Tao va Cap nhat thong tin User
       microsoft.ad.user:
-        # Tab General & Account
-        name: "{{ nhanvien.username }}"   # Tên đăng nhập (it.hd)
-        firstname: "{{ nhanvien.ho }}"    # First name (Luong Van)
-        surname: "{{ nhanvien.ten }}"     # Last name (Huy)
-        display_name: "{{ nhanvien.ho }} {{ nhanvien.ten }}" # Display Name
+        # --- Thông tin cơ bản (Giữ nguyên) ---
+        name: "{{ nhanvien.username }}"
+        firstname: "{{ nhanvien.ho }}"
+        surname: "{{ nhanvien.ten }}"
+        display_name: "{{ nhanvien.ho }} {{ nhanvien.ten }}"
         email: "{{ nhanvien.email }}"
         password: "{{ user_pass }}"
-        
-        # Tab Account Options (Password never expires)
+        path: "{{ target_path }}"
         password_never_expires: yes
         enabled: yes
         
-        # Tab Organization
-        job_title: "{{ nhanvien.chucdanh }}"
-        department: "{{ nhanvien.phongban }}"
-        company: "{{ nhanvien.congty }}"
+        # --- THÔNG TIN TỔ CHỨC (Sửa lại phần này) ---
+        # Nhét hết Chức danh, Phòng ban vào trong 'attributes'
+        attributes:
+          title: "{{ nhanvien.chucdanh }}"      # Job Title đổi thành title
+          department: "{{ nhanvien.phongban }}" # Department
+          company: "{{ nhanvien.congty }}"      # Company
         
         # Đường dẫn OU
         path: "{{ target_path }}"
