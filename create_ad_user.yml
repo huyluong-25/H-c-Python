@@ -10,16 +10,23 @@
       ho: "Luong Van"
       ten: "Huy"
       username: "it.hd"
+      upn_full: "it.hd@huylv.xyz"
       email: "it.hd@tinigroup.vn"
       chucdanh: "IT Helpdesk"
       phongban: "P. CNTT"
       congty: "TINIGROUP"
 
   tasks:
-    # 1. TẠO USER
     - name: Tao va Cap nhat thong tin User
       microsoft.ad.user:
-        name: "{{ nhanvien.username }}"
+        # --- PHẦN NÀY QUYẾT ĐỊNH TÊN HIỂN THỊ ---
+        name: "{{ nhanvien.ho }} {{ nhanvien.ten }}"  # Sẽ ra: "Luong Van Huy" (CN)
+        
+        # --- PHẦN NÀY QUYẾT ĐỊNH TÊN ĐĂNG NHẬP ---
+        sam_account_name: "{{ nhanvien.username }}"   # Sẽ ra: "it.hd"
+        upn: "{{ nhanvien.upn_full }}"                # Sẽ ra: "it.hd@huylv.xyz"
+        
+        # --- Các thông tin khác ---
         firstname: "{{ nhanvien.ho }}"
         surname: "{{ nhanvien.ten }}"
         display_name: "{{ nhanvien.ho }} {{ nhanvien.ten }}"
@@ -29,14 +36,13 @@
         password_never_expires: yes
         enabled: yes
         
-        # SỬA LẠI ĐOẠN NÀY:
         attributes:
           set:
             title: "{{ nhanvien.chucdanh }}"
             department: "{{ nhanvien.phongban }}"
             company: "{{ nhanvien.congty }}"
 
-    # 2. ADD GROUP ADMIN
+    # Add Group (Lưu ý: identity phải dùng sam_account_name)
     - name: Add User vao Group Admin
       win_shell: |
         Add-ADGroupMember -Identity "Administrators" -Members "{{ nhanvien.username }}" -ErrorAction SilentlyContinue
