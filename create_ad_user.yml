@@ -33,7 +33,7 @@
       microsoft.ad.user:
         identity: "{{ item.split(',')[0] | trim }}"
         sam_account_name: "{{ item.split(',')[0] | trim }}"
-        upn: "{{ item.split(',')[0] | trim }}@tinigroup.local"
+        upn: "{{ item.split(',')[0] | trim }}@tinigroup.vn"
         
         name: "{{ item.split(',')[1] | trim }}" 
         display_name: "{{ item.split(',')[1] | trim }}"
