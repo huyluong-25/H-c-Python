@@ -3,24 +3,22 @@
   gather_facts: no
   
   vars:
-    # Thông tin cấu hình chung
-    user_pass: "MatKhauManh@123"  # <--- Sửa lại mật khẩu
+    user_pass: "MatKhauManh@123"
     target_path: "OU=08 PHONG CNTT,OU=TINIGROUP,DC=huylv,DC=xyz"
     
-    # Thông tin nhân viên (Sau này có thể nhập từ Jenkins Parameter)
     nhanvien:
       ho: "Luong Van"
       ten: "Huy"
-      username: "it.hd"  # User logon name
+      username: "it.hd"
       email: "it.hd@tinigroup.vn"
       chucdanh: "IT Helpdesk"
       phongban: "P. CNTT"
-      congty: "TINIGROUP" # Ví dụ tên công ty
+      congty: "TINIGROUP"
 
   tasks:
+    # 1. TẠO USER
     - name: Tao va Cap nhat thong tin User
       microsoft.ad.user:
-        # --- Thông tin cơ bản (Giữ nguyên) ---
         name: "{{ nhanvien.username }}"
         firstname: "{{ nhanvien.ho }}"
         surname: "{{ nhanvien.ten }}"
@@ -31,18 +29,14 @@
         password_never_expires: yes
         enabled: yes
         
-        # --- THÔNG TIN TỔ CHỨC (Sửa lại phần này) ---
-        # Nhét hết Chức danh, Phòng ban vào trong 'attributes'
+        # SỬA LẠI ĐOẠN NÀY:
         attributes:
-          title: "{{ nhanvien.chucdanh }}"      # Job Title đổi thành title
-          department: "{{ nhanvien.phongban }}" # Department
-          company: "{{ nhanvien.congty }}"      # Company
-        
-        # Đường dẫn OU
-        path: "{{ target_path }}"
-        state: present
+          set:
+            title: "{{ nhanvien.chucdanh }}"
+            department: "{{ nhanvien.phongban }}"
+            company: "{{ nhanvien.congty }}"
 
-    # 2. ADD GROUP ADMIN (Dùng PowerShell cho chắc ăn)
+    # 2. ADD GROUP ADMIN
     - name: Add User vao Group Admin
       win_shell: |
         Add-ADGroupMember -Identity "Administrators" -Members "{{ nhanvien.username }}" -ErrorAction SilentlyContinue
