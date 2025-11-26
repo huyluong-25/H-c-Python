@@ -28,7 +28,11 @@
       PHAP_LY_DU_AN: "OU=01 PHAP LY DU AN,OU=02 KHOI PHAT TRIEN DU AN,OU=TINIGROUP,DC=tinigroup,DC=local"
       QL_DU_AN: "OU=02 QUAN LY DU AN,OU=02 KHOI PHAT TRIEN DU AN,OU=TINIGROUP,DC=tinigroup,DC=local"
       R_AND_D: "OU=03 NGHIEN CUU & PHAT TRIEN,OU=02 KHOI PHAT TRIEN DU AN,OU=TINIGROUP,DC=tinigroup,DC=local"
-    
+
+      QL_KY_THUAT: "OU=01 PHONG QUAN LY KY THUAT,OU=09 KHOI QUAN LY DU AN,OU=TINIGROUP,DC=tinigroup,DC=local"
+      DIEU_PHOI_DA: "OU=02 PHONG DIEU PHOI DU AN,OU=09 KHOI QUAN LY DU AN,OU=TINIGROUP,DC=tinigroup,DC=local"
+      BAN_QLDA: "OU=03 CAC BAN QUAN LY DU AN,OU=09 KHOI QUAN LY DU AN,OU=TINIGROUP,DC=tinigroup,DC=local"
+
     nhanvien: # Thong tin nhan vien can tao
       ho: "Test"
       ten: "123456"
@@ -61,7 +65,7 @@
         password_never_expires: yes
         enabled: yes
 
-        path: "{{ ou_map['CNTT'] }}" # Chọn OU để tạo user vào đây
+        path: "{{ ou_map['BAN_QLDA'] }}" # Chọn OU để tạo user vào đây
         state: present
         
         attributes:
