@@ -34,9 +34,9 @@
       BAN_QLDA: "OU=03 CAC BAN QUAN LY DU AN,OU=09 KHOI QUAN LY DU AN,OU=TINIGROUP,DC=tinigroup,DC=local"
 
     nhanvien: # Thong tin nhan vien can tao
-      ho: "Test"
-      ten: "1234"
-      username: "test1234"  # Sẽ ra: "it.hd"
+      ho: "LUONG VAN"
+      ten: "HI"
+      username: "LUONG VAN HI"  # Sẽ ra: "it.hd"
       upn_full: "test1234@tinigroup.vn"
       email: "test1234@tinigroup.vn"
       chucdanh: "CNTT"
