@@ -7,8 +7,8 @@
     target_path: "OU=08 PHONG CNTT,OU=TINIGROUP,DC=huylv,DC=xyz"
     
     nhanvien:
-      ho: "Nguyen Phuc"
-      ten: "Thinh"
+      ho: "Luong Van"
+      ten: "Huy"
       username: "it.sys"
       upn_full: "it.sys@huylv.xyz"
       email: "it.sys@tinigroup.vn"
@@ -19,6 +19,8 @@
   tasks:
     - name: Tao va Cap nhat thong tin User
       microsoft.ad.user:
+        # --- DÒNG QUYẾT ĐỊNH: Tìm user dựa trên ID đăng nhập ---
+        identity: "{{ nhanvien.username }}"      
         # --- PHẦN NÀY QUYẾT ĐỊNH TÊN HIỂN THỊ ---
         name: "{{ nhanvien.ho }} {{ nhanvien.ten }}"  # Sẽ ra: "Luong Van Huy" (CN)
         
