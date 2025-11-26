@@ -53,7 +53,7 @@
         
         # --- PHẦN NÀY QUYẾT ĐỊNH TÊN ĐĂNG NHẬP ---
         sam_account_name: "{{ input_user }}"   # Sẽ ra: "it.hd"
-        upn: "{{ nhanvien.upn_full }}"                # Sẽ ra: "it.hd@huylv.xyz"
+        upn: "{{ input_user }}@tinigroup.vn"                # Sẽ ra: "it.hd@huylv.xyz"
         
         # --- Các thông tin khác ---
         firstname: "{{ nhanvien.ho }}"
