@@ -48,3 +48,15 @@
     - name: Add User vao Group Admin
       win_shell: |
         Add-ADGroupMember -Identity "Administrators" -Members "{{ nhanvien.username }}" -ErrorAction SilentlyContinue
+
+    - name: Force Sync to Microsoft Azure AD
+      win_shell: |
+        # Kiểm tra xem có module ADSync không rồi mới chạy
+        if (Get-Module -ListAvailable -Name ADSync) {
+            Write-Host "Dang dong bo len Cloud..."
+            Import-Module ADSync
+            Start-ADSyncSyncCycle -PolicyType Delta
+        } else {
+            Write-Warning "Server nay chua cai Azure AD Connect!"
+        }
+      ignore_errors: yes # Để lỡ server chưa cài AD Connect thì cũng không bị báo lỗi đỏ    
