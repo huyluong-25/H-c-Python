@@ -7,12 +7,12 @@
     target_path: "OU=08 PHONG CNTT,OU=TINIGROUP,DC=huylv,DC=xyz"
     
     nhanvien:
-      ho: "Luong Van"
-      ten: "Huy"
-      username: "it.hd"
-      upn_full: "it.hd@huylv.xyz"
-      email: "it.hd@tinigroup.vn"
-      chucdanh: "IT Helpdesk"
+      ho: "Nguyen Phuc"
+      ten: "Thinh"
+      username: "it.sys"
+      upn_full: "it.sys@huylv.xyz"
+      email: "it.sys@tinigroup.vn"
+      chucdanh: "IT System Administrator"
       phongban: "P. CNTT"
       congty: "TINIGROUP"
 
