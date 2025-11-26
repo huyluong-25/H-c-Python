@@ -47,12 +47,12 @@
     - name: Tao va Cap nhat thong tin User
       microsoft.ad.user:
         # --- DÒNG QUYẾT ĐỊNH: Tìm user dựa trên ID đăng nhập ---
-        identity: "{{ nhanvien.username }}"      
+        identity: "{{ input_user }}"  # Sẽ ra: "it.hd" 
         # --- PHẦN NÀY QUYẾT ĐỊNH TÊN HIỂN THỊ ---
         name: "{{ nhanvien.ho }} {{ nhanvien.ten }}"  # Sẽ ra: "Luong Van Huy" (CN)
         
         # --- PHẦN NÀY QUYẾT ĐỊNH TÊN ĐĂNG NHẬP ---
-        sam_account_name: "{{ nhanvien.username }}"   # Sẽ ra: "it.hd"
+        sam_account_name: "{{ input_user }}"   # Sẽ ra: "it.hd"
         upn: "{{ nhanvien.upn_full }}"                # Sẽ ra: "it.hd@huylv.xyz"
         
         # --- Các thông tin khác ---
