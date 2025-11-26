@@ -7,7 +7,7 @@
     target_path: "OU=08 PHONG CNTT,OU=TINIGROUP,DC=huylv,DC=xyz"
     
     nhanvien:
-      ho: "Nguyen Van"
+      ho: "Luong Van"
       ten: "Dung"
       username: "it.ba"  # Sẽ ra: "it.hd"
       upn_full: "it.ba@huylv.xyz"
