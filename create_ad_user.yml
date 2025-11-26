@@ -8,11 +8,11 @@
     
     nhanvien:
       ho: "Nguyen Van"
-      ten: "ABC"
-      username: "it.hd"
-      upn_full: "it.hd@huylv.xyz"
-      email: "it.hd@tinigroup.vn"
-      chucdanh: "IT Helpdesk"
+      ten: "Dung"
+      username: "it.ba"  # Sẽ ra: "it.hd"
+      upn_full: "it.ba@huylv.xyz"
+      email: "it.ba@tinigroup.vn"
+      chucdanh: "IT Ba"
       phongban: "P. CNTT"
       congty: "TINIGROUP"
 
