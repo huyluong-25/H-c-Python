@@ -1,25 +1,48 @@
-- name: Tao User AD vao Phong CNTT
+- name: Tao User AD Full Thong Tin
   hosts: winservers
   gather_facts: no
   
   vars:
-    user_pass: "MatKhauManh@123"
+    # Thông tin cấu hình chung
+    user_pass: "MatKhauManh@123"  # <--- Sửa lại mật khẩu
     target_path: "OU=08 PHONG CNTT,OU=TINIGROUP,DC=huylv,DC=xyz"
+    
+    # Thông tin nhân viên (Sau này có thể nhập từ Jenkins Parameter)
+    nhanvien:
+      ho: "Luong Van"
+      ten: "Huy"
+      username: "it.hd"  # User logon name
+      email: "it.hd@tinigroup.vn"
+      chucdanh: "IT Helpdesk"
+      phongban: "P. CNTT"
+      congty: "TINIGROUP" # Ví dụ tên công ty
 
   tasks:
-    # 1. TẠO USER
-    - name: Tao User NhanVienMoi
+    # 1. TẠO USER VỚI ĐẦY ĐỦ THÔNG TIN
+    - name: Tao va Cap nhat thong tin User
       microsoft.ad.user:
-        name: NhanVienMoihihi
+        # Tab General & Account
+        name: "{{ nhanvien.username }}"   # Tên đăng nhập (it.hd)
+        firstname: "{{ nhanvien.ho }}"    # First name (Luong Van)
+        surname: "{{ nhanvien.ten }}"     # Last name (Huy)
+        display_name: "{{ nhanvien.ho }} {{ nhanvien.ten }}" # Display Name
+        email: "{{ nhanvien.email }}"
         password: "{{ user_pass }}"
-        firstname: Nguyen
-        surname: Van D
-        email: nguyenvanahihi@huylv.xyz
-        path: "{{ target_path }}"
+        
+        # Tab Account Options (Password never expires)
+        password_never_expires: yes
         enabled: yes
+        
+        # Tab Organization
+        job_title: "{{ nhanvien.chucdanh }}"
+        department: "{{ nhanvien.phongban }}"
+        company: "{{ nhanvien.congty }}"
+        
+        # Đường dẫn OU
+        path: "{{ target_path }}"
         state: present
 
-    # 2. ADD GROUP (Dùng PowerShell cho chắc ăn)
+    # 2. ADD GROUP ADMIN (Dùng PowerShell cho chắc ăn)
     - name: Add User vao Group Admin
       win_shell: |
-        Add-ADGroupMember -Identity "Administrators" -Members "NhanVienMoihihi" -ErrorAction SilentlyContinue
+        Add-ADGroupMember -Identity "Administrators" -Members "{{ nhanvien.username }}" -ErrorAction SilentlyContinue
